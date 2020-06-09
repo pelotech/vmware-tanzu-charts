@@ -267,15 +267,16 @@ restic:
 # Backup schedules to create.
 # Eg:
 # schedules:
-# - name: mybackup
-#   labels:
-#     myenv: foo
-#   schedule: "0 0 * * *"
-#   template:
-#     ttl: "240h"
-#     includedNamespaces:
-#       - foo
+#   mybackup:
+#     schedule: "0 0 * * *"
+#     template:
+#       ttl: "240h"
+#       includedNamespaces:
+#        - foo
 schedules: []
+
+scheduleLabels: {}
+
 # Velero ConfigMaps.
 # Eg:
 # configMaps:
