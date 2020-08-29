@@ -1,0 +1,18 @@
+suite: Restic DaemonSet
+tests:
+  - it: is not created by default
+    values:
+      - base-values.yaml
+    template: restic-daemonset.yaml
+    asserts:
+      - hasDocuments:
+          count: 0
+  - it: is created when enabled
+    set:
+      restic.enabled: true
+    values:
+      - base-values.yaml
+    template: restic-daemonset.yaml
+    asserts:
+      - isKind:
+          of: DaemonSet
